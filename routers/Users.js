@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
       }
     })
     .catch(err => {
-      res.send("error" + err)
+      res.send(res.statusCode);
     })
 })
 
