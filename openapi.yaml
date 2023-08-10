@@ -1,0 +1,238 @@
+openapi: 3.0.0
+info: 
+  title: Cafe
+  description: Booking Coffee System.
+paths: 
+  /menu: 
+    get:
+      summary: display the menu
+      tags:
+        - Menu
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /order/{id}: 
+    get:
+      summary: display the order
+      tags:
+        - Order
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /order/{id}:
+    post: 
+      summary: add the new order
+      tags:
+        - Order
+      responses:
+        "201":
+          content: 
+            application/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: number
+                  email:
+                    type: string
+                  itemTitle:
+                    type: string
+                  itemQuantity:
+                    type: number
+                  totalPrice:
+                    type: number
+                  isCaseClosed:
+                    type: boolean
+                  date:
+                    type: date
+
+  /maxorderid: 
+    get:
+      summary: display the max order Id
+      tags:
+        - Order
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /avatar: 
+    get:
+      summary: display the max order Id
+      tags:
+        - S3
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /pickuporder:
+    put:
+      summary: update status
+      tags: 
+        - Order
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: number
+                  email:
+                    type: string
+
+
+  /cart/{id}: 
+    get:
+      summary: display user's cart
+      tags:
+        - Cart
+      parameters:
+        - in: path
+          name: id
+          schema: 
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /register:
+    post:
+      summary: create an User
+      tags:
+        - Register
+      responses:
+        "201": 
+          content: 
+            applicatuon/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  telephone: 
+                    type: number
+                  email: 
+                    type: string
+                  password:
+                    type: string 
+                  avatar:
+                    type: string
+
+  /login:
+    post:
+      summary: User login
+      tags: 
+        - Login
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                type: object
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  password:
+                    type: string
+
+
+
+
+  
+
+                 
+
+
+
+
+
